@@ -29,7 +29,9 @@ android {
                                 ".apk",
 
                                 // alter this string to change output file name
-                                "-" + defaultConfig.versionName + "-build" + defaultConfig.versionCode + ".apk"
+                                //"-" + defaultConfig.versionName + "-build" + defaultConfig.versionCode + ".apk"
+                                "HelloJenkins.apk"
+
                         )
                 )
             }

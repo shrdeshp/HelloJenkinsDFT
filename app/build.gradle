@@ -15,6 +15,24 @@ android {
         release {
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            // that will output files named:
+            //   MyApp-release-<versionName>-build<versionCode>.apk
+            applicationVariants.all { variant ->
+                def file = variant.outputFile
+                variant.outputFile = new File(
+
+                        // override this to change output directory
+                        (String) file.parent,
+
+                        (String) file.name.replace(
+                                ".apk",
+
+                                // alter this string to change output file name
+                                "-" + defaultConfig.versionName + "-build" + defaultConfig.versionCode + ".apk"
+                        )
+                )
+            }
         }
     }
 }
